@@ -19,12 +19,12 @@ if not dlg.OK:
 
 # ── Window & stimuli ─────────────────────────────────────────────────────────
 win       = visual.Window(fullscr=True, color='#404040', units='height')
-fixation  = visual.TextStim(win, '+', height=0.06, color='white', font='Helvetica')
+fixation  = visual.TextStim(win, '+', height=0.06, color='white', font='Arial')
 # Okabe-Ito colorblind-safe palette (Okabe & Ito, 2008)
 go_stim   = visual.Circle(win, radius=0.12, fillColor='#56B4E9', lineColor='#56B4E9')  # sky blue
 nogo_stim = visual.Circle(win, radius=0.12, fillColor='#E69F00', lineColor='#E69F00')  # orange
-feedback  = visual.TextStim(win, '', height=0.06, bold=True, font='Helvetica')
-msg       = visual.TextStim(win, '', height=0.042, wrapWidth=1.4, color='white', font='Helvetica')
+feedback  = visual.TextStim(win, '', height=0.06, bold=True, font='Arial')
+msg       = visual.TextStim(win, '', height=0.042, wrapWidth=1.4, color='white', font='Arial')
 
 # ── Timing (seconds) ─────────────────────────────────────────────────────────
 FIX_DUR      = 0.500
@@ -53,7 +53,7 @@ def show_instructions():
         # Title
         visual.TextStim(win,
             text='ĆWICZENIE',
-            font='Helvetica', height=0.065, bold=True,
+            font='Arial', height=0.065, bold=True,
             color='white', pos=(0, 0.35)),
         # Separator
         visual.Rect(win,
@@ -66,12 +66,12 @@ def show_instructions():
             pos=(-0.42, 0.12)),
         # Go row — arrow
         visual.TextStim(win,
-            text='→', font='Helvetica', height=0.042, color='#888888',
+            text='→', font='Arial', height=0.042, color='#888888',
             pos=(-0.27, 0.12)),
         # Go row — label
         visual.TextStim(win,
             text='Naciśnij SPACJĘ jak najszybciej',
-            font='Helvetica', height=0.038, color='white',
+            font='Arial', height=0.038, color='white',
             pos=(0.07, 0.12), wrapWidth=0.70),
         # No-go row — circle
         visual.Circle(win,
@@ -79,23 +79,23 @@ def show_instructions():
             pos=(-0.42, -0.03)),
         # No-go row — arrow
         visual.TextStim(win,
-            text='→', font='Helvetica', height=0.042, color='#888888',
+            text='→', font='Arial', height=0.042, color='#888888',
             pos=(-0.27, -0.03)),
         # No-go row — label
         visual.TextStim(win,
             text='NIE naciskaj nic',
-            font='Helvetica', height=0.038, color='white',
+            font='Arial', height=0.038, color='white',
             pos=(0.07, -0.03), wrapWidth=0.70),
         # Feedback note
         visual.TextStim(win,
             text='Po każdej próbie otrzymasz informację zwrotną.\n'
                  'W głównym zadaniu nie będzie informacji zwrotnej.',
-            font='Helvetica', height=0.033, color='#999999',
+            font='Arial', height=0.033, color='#999999',
             pos=(0, -0.20), wrapWidth=1.3),
         # Prompt
         visual.TextStim(win,
             text='[ Naciśnij SPACJĘ, aby rozpocząć ćwiczenie ]',
-            font='Helvetica', height=0.029, color='#666666',
+            font='Arial', height=0.029, color='#666666',
             pos=(0, -0.38)),
     ]
     for el in elements:
