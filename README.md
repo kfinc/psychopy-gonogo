@@ -81,7 +81,7 @@ Data is saved to `data/gonogo_sub-<ID>_ses-<N>_<timestamp>.csv` with columns:
 
 If you use this implementation in published work, please cite:
 
-> Finc, K. (2026). *psychopy-gonogo: A classical Go/No-Go task in PsychoPy*. GitHub. https://github.com/<your-username>/psychopy-gonogo
+> Finc, K. (2026). *psychopy-gonogo: A classical Go/No-Go task in PsychoPy*. GitHub. https://github.com/kfinc/psychopy-gonogo
 
 ### Key references for the design
 
