@@ -49,20 +49,20 @@ def show_msg(text, wait_keys=('space',)):
     event.waitKeys(keyList=list(wait_keys))
 
 FEEDBACK_CFG = {
-    'hit':               ('Correct!',       '#2ECC71'),
-    'miss':              ('Too slow!',       '#E67E22'),
-    'false_alarm':       ('Oops — no press!','#E74C3C'),
-    'correct_rejection': ('Correct!',        '#2ECC71'),
+    'hit':               ('Dobrze!',            '#2ECC71'),
+    'miss':              ('Za wolno!',           '#E67E22'),
+    'false_alarm':       ('Nie naciskaj!',       '#E74C3C'),
+    'correct_rejection': ('Dobrze!',             '#2ECC71'),
 }
 
 # ── Instructions ─────────────────────────────────────────────────────────────
 show_msg(
-    "PRACTICE\n\n"
-    "BLUE circle    →  Press SPACE as quickly as you can\n"
-    "ORANGE circle  →  Do NOT press anything\n\n"
-    "You will receive feedback after each trial.\n"
-    "The real task has no feedback.\n\n"
-    "[Press SPACE to begin practice]"
+    "ĆWICZENIE\n\n"
+    "NIEBIESKI okrąg     →  Naciśnij SPACJĘ tak szybko jak możesz\n"
+    "POMARAŃCZOWY okrąg  →  NIE naciskaj nic\n\n"
+    "Po każdej próbie otrzymasz informację zwrotną.\n"
+    "W głównym zadaniu nie będzie informacji zwrotnej.\n\n"
+    "[Naciśnij SPACJĘ, aby rozpocząć ćwiczenie]"
 )
 
 # ── Practice loop ─────────────────────────────────────────────────────────────
@@ -121,11 +121,11 @@ for t, trial_type in enumerate(trials):
 
 # ── Summary ───────────────────────────────────────────────────────────────────
 show_msg(
-    f"Practice complete!\n\n"
-    f"You got {n_correct} / {N_PRACTICE} correct.\n\n"
-    "The real task will now begin.\n"
-    "Remember: no feedback will be shown.\n\n"
-    "[Press SPACE to continue]"
+    f"Ćwiczenie zakończone!\n\n"
+    f"Poprawne odpowiedzi: {n_correct} / {N_PRACTICE}\n\n"
+    "Za chwilę rozpocznie się główne zadanie.\n"
+    "Pamiętaj: nie będzie informacji zwrotnej.\n\n"
+    "[Naciśnij SPACJĘ, aby kontynuować]"
 )
 
 win.close()

@@ -64,11 +64,11 @@ def show_msg(text, wait_keys=('space',)):
 
 # ── Instructions ─────────────────────────────────────────────────────────────
 show_msg(
-    "GO / NO-GO TASK\n\n"
-    "BLUE circle    →  Press SPACE as quickly as you can\n"
-    "ORANGE circle  →  Do NOT press anything\n\n"
-    "Respond quickly, but try to avoid mistakes.\n\n"
-    "[Press SPACE to begin]"
+    "ZADANIE GO / NO-GO\n\n"
+    "NIEBIESKI okrąg     →  Naciśnij SPACJĘ tak szybko jak możesz\n"
+    "POMARAŃCZOWY okrąg  →  NIE naciskaj nic\n\n"
+    "Reaguj szybko, ale staraj się nie popełniać błędów.\n\n"
+    "[Naciśnij SPACJĘ, aby rozpocząć]"
 )
 
 # ── Main loop ─────────────────────────────────────────────────────────────────
@@ -134,6 +134,6 @@ with open(outfile, 'w', newline='') as f:
     writer.writerows(rows)
 
 # ── End screen ────────────────────────────────────────────────────────────────
-show_msg(f"All done!\n\nData saved to:\n{outfile}\n\n[SPACE to exit]")
+show_msg(f"Gotowe!\n\nDane zapisano do:\n{outfile}\n\n[SPACJA, aby zakończyć]")
 win.close()
 core.quit()
