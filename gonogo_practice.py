@@ -19,12 +19,12 @@ if not dlg.OK:
 
 # ── Window & stimuli ─────────────────────────────────────────────────────────
 win       = visual.Window(fullscr=True, color='#404040', units='height')
-fixation  = visual.TextStim(win, '+', height=0.06, color='white')
+fixation  = visual.TextStim(win, '+', height=0.06, color='white', font='Helvetica')
 # Okabe-Ito colorblind-safe palette (Okabe & Ito, 2008)
 go_stim   = visual.Circle(win, radius=0.12, fillColor='#56B4E9', lineColor='#56B4E9')  # sky blue
 nogo_stim = visual.Circle(win, radius=0.12, fillColor='#E69F00', lineColor='#E69F00')  # orange
-feedback  = visual.TextStim(win, '', height=0.06, bold=True)
-msg       = visual.TextStim(win, '', height=0.04, wrapWidth=1.6, color='white')
+feedback  = visual.TextStim(win, '', height=0.06, bold=True, font='Helvetica')
+msg       = visual.TextStim(win, '', height=0.042, wrapWidth=1.4, color='white', font='Helvetica')
 
 # ── Timing (seconds) ─────────────────────────────────────────────────────────
 FIX_DUR      = 0.500
@@ -41,29 +41,77 @@ random.shuffle(trials)
 
 rt_clock = core.Clock()
 
-# ── Helper ───────────────────────────────────────────────────────────────────
+# ── Helpers ───────────────────────────────────────────────────────────────────
 def show_msg(text, wait_keys=('space',)):
     msg.text = text
     msg.draw()
     win.flip()
     event.waitKeys(keyList=list(wait_keys))
 
+def show_instructions():
+    elements = [
+        # Title
+        visual.TextStim(win,
+            text='ĆWICZENIE',
+            font='Helvetica', height=0.065, bold=True,
+            color='white', pos=(0, 0.35)),
+        # Separator
+        visual.Rect(win,
+            width=0.72, height=0.003,
+            fillColor='#606060', lineColor='#606060',
+            pos=(0, 0.24)),
+        # Go row — circle
+        visual.Circle(win,
+            radius=0.038, fillColor='#56B4E9', lineColor='#56B4E9',
+            pos=(-0.42, 0.12)),
+        # Go row — arrow
+        visual.TextStim(win,
+            text='→', font='Helvetica', height=0.042, color='#888888',
+            pos=(-0.27, 0.12)),
+        # Go row — label
+        visual.TextStim(win,
+            text='Naciśnij SPACJĘ jak najszybciej',
+            font='Helvetica', height=0.038, color='white',
+            pos=(0.07, 0.12), wrapWidth=0.70),
+        # No-go row — circle
+        visual.Circle(win,
+            radius=0.038, fillColor='#E69F00', lineColor='#E69F00',
+            pos=(-0.42, -0.03)),
+        # No-go row — arrow
+        visual.TextStim(win,
+            text='→', font='Helvetica', height=0.042, color='#888888',
+            pos=(-0.27, -0.03)),
+        # No-go row — label
+        visual.TextStim(win,
+            text='NIE naciskaj nic',
+            font='Helvetica', height=0.038, color='white',
+            pos=(0.07, -0.03), wrapWidth=0.70),
+        # Feedback note
+        visual.TextStim(win,
+            text='Po każdej próbie otrzymasz informację zwrotną.\n'
+                 'W głównym zadaniu nie będzie informacji zwrotnej.',
+            font='Helvetica', height=0.033, color='#999999',
+            pos=(0, -0.20), wrapWidth=1.3),
+        # Prompt
+        visual.TextStim(win,
+            text='[ Naciśnij SPACJĘ, aby rozpocząć ćwiczenie ]',
+            font='Helvetica', height=0.029, color='#666666',
+            pos=(0, -0.38)),
+    ]
+    for el in elements:
+        el.draw()
+    win.flip()
+    event.waitKeys(keyList=['space'])
+
 FEEDBACK_CFG = {
-    'hit':               ('Dobrze!',            '#2ECC71'),
-    'miss':              ('Za wolno!',           '#E67E22'),
-    'false_alarm':       ('Nie naciskaj!',       '#E74C3C'),
-    'correct_rejection': ('Dobrze!',             '#2ECC71'),
+    'hit':               ('Dobrze!',       '#2ECC71'),
+    'miss':              ('Za wolno!',      '#E67E22'),
+    'false_alarm':       ('Nie naciskaj!',  '#E74C3C'),
+    'correct_rejection': ('Dobrze!',        '#2ECC71'),
 }
 
 # ── Instructions ─────────────────────────────────────────────────────────────
-show_msg(
-    "ĆWICZENIE\n\n"
-    "NIEBIESKI okrąg     →  Naciśnij SPACJĘ tak szybko jak możesz\n"
-    "POMARAŃCZOWY okrąg  →  NIE naciskaj nic\n\n"
-    "Po każdej próbie otrzymasz informację zwrotną.\n"
-    "W głównym zadaniu nie będzie informacji zwrotnej.\n\n"
-    "[Naciśnij SPACJĘ, aby rozpocząć ćwiczenie]"
-)
+show_instructions()
 
 # ── Practice loop ─────────────────────────────────────────────────────────────
 n_correct = 0
