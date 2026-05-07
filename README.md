@@ -55,7 +55,7 @@ python gonogo_task.py        # main task, data saved to data/
 
 Both scripts can also be opened in PsychoPy Coder and run with the green ▶ button.
 
-A dialog will prompt for participant ID, session number, age, and gender.
+A dialog will prompt for participant ID and session number.
 
 ## Output
 
@@ -63,7 +63,7 @@ Data is saved to `data/gonogo_sub-<ID>_ses-<N>_<timestamp>.csv` with columns:
 
 | Column | Description |
 |---|---|
-| `participant`, `session`, `age`, `gender` | Demographics from dialog |
+| `participant`, `session` | ID and session number from dialog |
 | `trial` | Trial number (1-indexed) |
 | `trial_type` | `go` or `nogo` |
 | `responded` | 1 if SPACE pressed, 0 otherwise |
@@ -77,13 +77,7 @@ Data is saved to `data/gonogo_sub-<ID>_ses-<N>_<timestamp>.csv` with columns:
 - **d′** = z(hit rate) − z(false alarm rate) — sensitivity (signal detection)
 - **Mean RT** on hits only — typically the primary speed measure
 
-## Citation
-
-If you use this implementation in published work, please cite:
-
-> Finc, K. (2026). *psychopy-gonogo: A classical Go/No-Go task in PsychoPy*. GitHub. https://github.com/kfinc/psychopy-gonogo
-
-### Key references for the design
+## References
 
 - **Go/No-Go paradigm**: Garavan, H., Ross, T. J., & Stein, E. A. (1999). Right hemispheric dominance of inhibitory control: An event-related functional MRI study. *PNAS, 96*(14), 8301–8306.
 - **75/25 ratio rationale**: Wessel, J. R. (2018). Prepotent motor activity and inhibitory control demands in different variants of the go/no-go paradigm. *Psychophysiology, 55*(3), e12871.
