@@ -14,10 +14,10 @@ import random, os, csv
 from datetime import datetime
 
 # ── Participant info ─────────────────────────────────────────────────────────
-exp_info = {'Participant ID': '', 'Session': '1', 'Age': '', 'Gender': ''}
+exp_info = {'Participant ID': '', 'Session': '1'}
 dlg = gui.DlgFromDict(
     exp_info, title='Go/No-Go Task',
-    order=['Participant ID', 'Session', 'Age', 'Gender']
+    order=['Participant ID', 'Session']
 )
 if not dlg.OK:
     core.quit()
@@ -50,8 +50,7 @@ outdir  = os.path.join(os.path.dirname(os.path.abspath(__file__)), 'data')
 os.makedirs(outdir, exist_ok=True)
 outfile = os.path.join(outdir, f'gonogo_sub-{pid}_ses-{exp_info["Session"]}_{ts}.csv')
 
-FIELDS  = ['participant', 'session', 'age', 'gender',
-           'trial', 'trial_type', 'responded', 'rt_ms', 'outcome']
+FIELDS  = ['participant', 'session', 'trial', 'trial_type', 'responded', 'rt_ms', 'outcome']
 
 rt_clock = core.Clock()
 
@@ -118,8 +117,6 @@ for t, trial_type in enumerate(trials):
     rows.append({
         'participant': pid,
         'session':     exp_info['Session'],
-        'age':         exp_info['Age'],
-        'gender':      exp_info['Gender'],
         'trial':       t + 1,
         'trial_type':  trial_type,
         'responded':   int(responded),
